@@ -16,6 +16,22 @@ text = tk.Text(
     font=("Helvetica", 12) 
 )
 
+# Func -1 create a new_file:
+def new_file():
+    text.delete(1.0, tk.END)
+
+# Func -2 create open_file:
+def open_file():
+    file_path = filedialog.askopenfilename(
+        defaultextension=".txt",
+        filetypes=[("Files Types", "*.txt")]
+    )
+
+    if file_path:
+        with open(file_path , "r")as file:
+            text.delete(1.0, tk.END)
+            text.insert(tk.END, file.read())
+
 
 
    
