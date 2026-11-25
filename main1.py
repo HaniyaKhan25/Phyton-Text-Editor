@@ -32,6 +32,19 @@ def open_file():
             text.delete(1.0, tk.END)
             text.insert(tk.END, file.read())
 
+# Func -3 create save_file:
+def save_file():
+    file_path= filedialog.asksaveasfilename(
+        defaultextension=".txt",
+        filetypes=[("Text File", "*.txt")]
+    )
+
+    if file_path:
+        with open(file_path, "w")as file:
+            file.write(text.get(1.0, tk.END))
+
+    messagebox.showinfo("Info", "File saved sucessfully")
+
 
 
    
